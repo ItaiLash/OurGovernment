@@ -59,17 +59,5 @@ def greedy_PAV(voters: list[Voter] = None, offices_candidates: dict = None) -> d
 if __name__ == '__main__':
     (failures, tests) = doctest.testmod(report=True)
     print("{} failures, {} tests".format(failures, tests))
-    a = Candidate('a', '1')
-    b = Candidate('b', '1')
-    c = Candidate('c', '2')
-    d = Candidate('d', '2')
-    e = Candidate('e', '3')
-    f = Candidate('f', '3')
-    g = Candidate('g', '3')
-    dict = {'1': [a, b], '2': [c, d], '3': [e, f, g]}
-    v_1 = Voter([a, c, e])
-    v_2 = Voter([a, c, f])
-    v_3 = Voter([a, d, f])
-    voters = [v_1, v_2, v_3]
-    print(greedy_PAV(voters, dict))
+
 
