@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style_demo.css" />
+    <title>Try Our Algorithm</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="header-text-box">
+          <h1>Try Our Algorithm</h1>
+          <div class="text--offices">
+            <p class="header-text">
+              The executive branch, or government, is typically not elected
+              directly by the people, but rather formed by another elected body
+              or person such as the parliament or the president.<br />
+              As a result, it's members are not directly accountable to the
+              people, individually or as a group.<br />We consider a scenario in
+              which the members of the government are elected directly by the
+              people, and wish to achieve proportional representation while
+              doing so. We propose a formal model for allocation of k offices
+              (ministries), each associated with a disjoint set of candidates
+              contesting for that seat; a set of voters provide approval ballots
+              for all offices.<br />We identify various scenarios pertaining to
+              the 'power' exercised by different offices and propose axioms and
+              algorithms to satisfy these axioms to determine pro- portionally
+              representative office allocations.<br />As using a simple majority
+              vote for each office independently might result in disregarding
+              minority preferences altogether, here we consider an adaptation of
+              the greedy variant of Proportional Approval Voting (GreedyPAV) to
+              our setting, and demonstrate through computer-based
+              simulations--how voting for all offices together using this rule
+              overcomes this weakness and satisfies a proportionality axiom.<br />We
+              note that the approach is applicable also to a party that employs
+              direct democracy, where party members elect the party's
+              representatives in a coalition government.
+            </p>
+          </div>
+        </div>
+      </header>
+      <body>
+        <table style="width: 100%">
+          <colgroup>
+            <col span="1" style="width: 15%" />
+            <col span="1" style="width: 70%" />
+            <col span="1" style="width: 15%" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="office--th">Office #1</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="office-0">
+            <tr id="office-0-name">
+              <td>Office Name</td>
+              <td data-title="Office Name">
+                <input
+                  id="office_name_0"
+                  name="office-names[0]"
+                  type="text"
+                  class="office-input"
+                />
+              </td>
+              <td id="office-delete-0">
+                <a class="btn-remove-office" href="#" title="Remove">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="192"
+                    height="192"
+                    fill="#000000"
+                    viewBox="0 0 256 256"
+                    class="trash-icon"
+                  >
+                    <rect width="256" height="256" fill="none"></rect>
+                    <line
+                      x1="216"
+                      y1="56"
+                      x2="40"
+                      y2="56"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <line
+                      x1="104"
+                      y1="104"
+                      x2="104"
+                      y2="168"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <line
+                      x1="152"
+                      y1="104"
+                      x2="152"
+                      y2="168"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <path
+                      d="M200,56V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V56"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></path>
+                    <path
+                      d="M168,56V40a16,16,0,0,0-16-16H104A16,16,0,0,0,88,40V56"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></path>
+                  </svg>
+                </a>
+              </td>
+            </tr>
+            <tr id="office-0-candidates">
+              <td>Candidates' Names<br />(comma-separated)</td>
+              <td data-title="Office Candidates">
+                <textarea
+                  class="candidates-input"
+                  name="office-candidates[0]"
+                  cols="40"
+                  rows="2"
+                ></textarea>
+                <!-- <input
+                  id="office_candidates_0"
+                  name="office-candidates[0]"
+                  type="text"
+                  class="candidates-input"
+                /> -->
+              </td>
+              <td id="candidates-delete-0">
+                <a class="btn-remove-candidates" href="#" title="Remove">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="192"
+                    height="192"
+                    fill="#000000"
+                    viewBox="0 0 256 256"
+                    class="trash-icon"
+                  >
+                    <rect width="256" height="256" fill="none"></rect>
+                    <line
+                      x1="216"
+                      y1="56"
+                      x2="40"
+                      y2="56"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <line
+                      x1="104"
+                      y1="104"
+                      x2="104"
+                      y2="168"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <line
+                      x1="152"
+                      y1="104"
+                      x2="152"
+                      y2="168"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <path
+                      d="M200,56V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V56"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></path>
+                    <path
+                      d="M168,56V40a16,16,0,0,0-16-16H104A16,16,0,0,0,88,40V56"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></path>
+                  </svg>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table style="width: 100%">
+          <colgroup>
+            <col span="1" style="width: 15%" />
+            <col span="1" style="width: 70%" />
+            <col span="1" style="width: 15%" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="office--th">Office #2</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="office-0">
+            <tr id="office-0-name">
+              <td>Office Name</td>
+              <td data-title="Office Name">
+                <input
+                  id="office_name_0"
+                  name="office-names[0]"
+                  type="text"
+                  class="office-input"
+                />
+              </td>
+              <td id="office-delete-0">
+                <a class="btn-remove-office" href="#" title="Remove">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="192"
+                    height="192"
+                    fill="#000000"
+                    viewBox="0 0 256 256"
+                    class="trash-icon"
+                  >
+                    <rect width="256" height="256" fill="none"></rect>
+                    <line
+                      x1="216"
+                      y1="56"
+                      x2="40"
+                      y2="56"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <line
+                      x1="104"
+                      y1="104"
+                      x2="104"
+                      y2="168"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <line
+                      x1="152"
+                      y1="104"
+                      x2="152"
+                      y2="168"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <path
+                      d="M200,56V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V56"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></path>
+                    <path
+                      d="M168,56V40a16,16,0,0,0-16-16H104A16,16,0,0,0,88,40V56"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></path>
+                  </svg>
+                </a>
+              </td>
+            </tr>
+            <tr id="office-0-candidates">
+              <td>Candidates' Names<br />(comma-separated)</td>
+              <td data-title="Office Candidates">
+                <textarea
+                  class="candidates-input"
+                  name="office-candidates[0]"
+                  cols="40"
+                  rows="2"
+                ></textarea>
+                <!-- <input
+                  id="office_candidates_0"
+                  name="office-candidates[0]"
+                  type="text"
+                  class="candidates-input"
+                /> -->
+              </td>
+              <td id="candidates-delete-0">
+                <a class="btn-remove-candidates" href="#" title="Remove">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="192"
+                    height="192"
+                    fill="#000000"
+                    viewBox="0 0 256 256"
+                    class="trash-icon"
+                  >
+                    <rect width="256" height="256" fill="none"></rect>
+                    <line
+                      x1="216"
+                      y1="56"
+                      x2="40"
+                      y2="56"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <line
+                      x1="104"
+                      y1="104"
+                      x2="104"
+                      y2="168"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <line
+                      x1="152"
+                      y1="104"
+                      x2="152"
+                      y2="168"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <path
+                      d="M200,56V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V56"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></path>
+                    <path
+                      d="M168,56V40a16,16,0,0,0-16-16H104A16,16,0,0,0,88,40V56"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></path>
+                  </svg>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <a href="#" class="btn-add-office">Add Office</a>
+      </body>
+      <footer>
+        Copyright &copy; 2021 by Itai Lashover. Part of "Computer science course
+        at Ariel University". Use for learning purposes only.
+      </footer>
+    </div>
+  </body>
+</html>
