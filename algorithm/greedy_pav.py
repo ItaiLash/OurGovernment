@@ -41,6 +41,7 @@ def greedy_PAV(voters: list[Voter] = None, offices_candidates: dict = None) -> d
     >>> greedy_PAV(voters, dict)
     {'1': 'a', '2': 'c', '3': 'f'}
     """
+    discription=''
     number_of_offices = len(offices_candidates)
     candidates_list = [candidate for office in offices_candidates.values() for candidate in office]
     results = {office: "" for office in offices_candidates}
@@ -53,7 +54,7 @@ def greedy_PAV(voters: list[Voter] = None, offices_candidates: dict = None) -> d
             if chosen_candidate in voter.preferences:
                 voter.reweight()
 
-    return results
+    return results,discription
 
 
 if __name__ == '__main__':
